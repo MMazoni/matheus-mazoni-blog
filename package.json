@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "matheus-mazoni-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "My personal blog to write about my work experience and technology",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "Matheus Mazoni <mmazoni.andrade@gmail.com>",
   "dependencies": {
     "gatsby": "^4.24.6",
     "gatsby-plugin-feed": "^4.24.0",
@@ -30,14 +27,18 @@
   "devDependencies": {
     "prettier": "^2.7.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/MMazoni/matheus-mazoni-blog#readme",
   "keywords": [
-    "gatsby"
+    "matheus",
+    "mazoni",
+    "desenvolvimento",
+    "devops",
+    "php"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/MMazoni/matheus-mazoni-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
