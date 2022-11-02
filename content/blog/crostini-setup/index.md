@@ -54,7 +54,7 @@ Existem vários gerenciadores de plugins do vim, o que utilizo é o _Vundle_.
 
 ### Fish
 
-Eu comecei utilizar o `fish` por causa de uma vídeo aula em que o instrutor usava, o autocomplete dele é muito bom, ele é bem leve e não precisa quase de configuração, diferente do _zsh_ que é o mais famoso e utilizado por programadores, por sua alta customização e variedade de plugins. Eles são uma alternativa ao padrão _bash_:
+Eu comecei a utilizar o `fish` por causa de uma vídeo aula em que o instrutor usava, o autocomplete dele é muito bom, ele é bem leve e não precisa quase de configuração, diferente do _zsh_ que é o mais famoso e utilizado por programadores, por sua alta customização e variedade de plugins. Eles são uma alternativa ao padrão _bash_:
 
     sudo apt install fish
     which fish
@@ -63,7 +63,7 @@ Pegue o que retornou desse comando, normalmente `/usr/bin/fish`, e coloque no lu
 
     sudo vim /etc/passwd
 
-### Node-js
+### Node.js
 
 Iremos baixar do site oficial a versão 10.16.0 LTS.
 
