@@ -118,5 +118,25 @@ module.exports = {
         icon: `src/images/mmazoni-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
+        web: [
+          {
+            name: `Finger Paint`,
+            file: `https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap`,
+          },
+          {
+            name: `Ubuntu`,
+            file: `https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap`,
+          },
+        ],
+      },
+    },
   ],
 }
