@@ -44,7 +44,7 @@ const Bio = () => {
       />
       {author?.name && (
         <p>
-          Escrito por <strong>{author.name}</strong> {author?.summary || null}
+          Escrito por <strong>{author.name}</strong>, {author?.summary || null}
           {` `}
           <a href={`https://twitter.com/${social?.twitter || ``}`}>
             Você deve segui-lo no Twitter

@@ -3,7 +3,7 @@ module.exports = {
     title: `Matheus Mazoni Blog`,
     author: {
       name: `Matheus Mazoni`,
-      summary: `fissurado em tecnologia, não sabe escolher uma área e porque não falar de todas.`,
+      summary: `fissurado em tecnologia, generalista demais, mora em São Paulo. Gosta de basquete, cozinhar e cultura japonesa.`,
     },
     description: `Um blog onde escrevo sobre Automação, DevOps e Desenvolvimento.`,
     siteUrl: `https://matheusmazoni.com.br/`,
