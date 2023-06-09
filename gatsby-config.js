@@ -142,10 +142,6 @@ module.exports = {
         ],
         web: [
           {
-            name: `Finger Paint`,
-            file: `https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap`,
-          },
-          {
             name: `Ubuntu`,
             file: `https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap`,
           },
