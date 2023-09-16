@@ -6,11 +6,9 @@ description: "Utilizando cgroups, chroot e namespaces para isolamento de recurso
 
 Entrei no Programa Intensivo de Containers e Kubernetes ([PICK](https://www.linuxtips.io/pick)) do Linuxtips. Agora, aprendo kubernetes de uma vez por todas e vou me tornar especialista em containers. Umas das primeiras aulas é o entendimento de containers e a criação deles utilizando apenas recursos nativos do kernel Linux, como namespaces, cgroups e o chroot. O objetivo desse post é fazer essa simulação de container.
 
-
 ## o que é container?
 
 É bem simples na verdade, containers são "caixinhas" que tem isolamento de recursos do sistema. Esses recursos podem ser memória, cpu, I/O (entrada/saída). Porém, podemos pensar também em isolamento de usuários, processos, rede, arquivos, entre outros.
-
 
 ### cgroups
 
@@ -18,14 +16,11 @@ O cgroups, control groups, é uma feature do kernel Linux que te permite isolar 
 
 ![](https://wizardzines.com/images/uploads/cgroups.png)
 
-
 ### chroot
 
 O chroot é utilizado para encapsular o file system, você consegue "enjaular" o usuário em um diretório específico e seus subdiretórios, em conjunto de outras ferramentas dos processos do host.
 
 ![](https://securityqueens.co.uk/wp-content/uploads/2020/04/Chroot-1.png)
-
-
 
 ### namespaces
 
@@ -38,10 +33,11 @@ Uma dessas outras ferramentas é o namespaces, que foi chave para criação e ge
 - IPC namespaces
 - User namespaces
 
-![](https://pbs.twimg.com/media/EJgR3NeXYAAFMaj?format=jpg&name=large)
+![](https://wizardzines.com/images/uploads/namespaces.png)
 
------
-O LXC (Linux Containers) utiliza o chroot, namespaces e o cgroups para isolar os recursos. 
+---
+
+O LXC (Linux Containers) utiliza o chroot, namespaces e o cgroups para isolar os recursos.
 O Docker no começo, lá em 2015, utilizava o LXC e uns scripts por debaixo dos panos, hoje ele faz muita mais coisas do que antigamente. Vamos para a parte prática:
 
 ## isolando os recursos com namespaces e chroot
@@ -59,39 +55,40 @@ Agora se dermos um `ls` na pasta que baixamos os arquivos, deverá mostrar isso:
 
 ![ls chroot-debian](https://trello.com/1/cards/65058dff8f9c8797651d90a3/attachments/65058dff8f9c8797651d90cd/download/image.png)
 
-Podemos utilizar o comando unshare para mexer com `namespaces`. Veja as opções dele, que são muitas (unshare --help). Iremos utilizar algumas, o objetivo com esse comando  é criar uma "realidade simulada" para que o usuário fique em `/home/chroot-debian` na visão do host, mas para ele será como se tivesse em `/`, a raiz de um sistema de arquivos linux com seus próprios processos, usuários, rede e etc.
+Podemos utilizar o comando unshare para mexer com `namespaces`. Veja as opções dele, que são muitas (unshare --help). Iremos utilizar algumas, o objetivo com esse comando é criar uma "realidade simulada" para que o usuário fique em `/home/chroot-debian` na visão do host, mas para ele será como se tivesse em `/`, a raiz de um sistema de arquivos linux com seus próprios processos, usuários, rede e etc.
 
 ```
-unshare --mount --uts --ipc --net --map-root-user --user --pid --fork chroot /home/chroot-debian bash 
+unshare --mount --uts --ipc --net --map-root-user --user --pid --fork chroot /home/chroot-debian bash
 ```
+
 ![unshare command](https://trello.com/1/cards/65058f4a376e9f7a3b46c597/attachments/65058f4a376e9f7a3b46c5c0/download/image.png)
- 
- Veja que depois do commando é necessário montar o /proc, /sys e o /tmp.
 
- ```
- mount -t proc proc /proc
- mount -t sysfs none /sys
- mount -t tmpfs none /tmp
- ```
+Veja que depois do commando é necessário montar o /proc, /sys e o /tmp.
 
- Vamos entender o que essas opções do unshare está fazendo:
+```
+mount -t proc proc /proc
+mount -t sysfs none /sys
+mount -t tmpfs none /tmp
+```
 
-* `--mount` - unshare mounts namespace (cada container é dono do seu ponto de montagem, isola os processos em um mnt namespace)
-* `--uts`  - unshare UTS namespace (isolamento de hostname, versão de SO, etc)
-* `--ipc` - unshare System V IPC namespace (isola o SystemV IPC)
-* `--net` - unshare network namespace (cada container possuiu sua interface de redes)
-* `--map-root-user` - mapeia o usuário atual para root (precisa do --user)
-* `--user` - unshare user namespace (mapa de identificação do usuário em cada container)
-* `--pid` - unshare pid namespace (cada container tenha sua identificação de processo)
-* `--fork`  -  fork antes do lançamento <programa>
-* `chroot /home/chroot-debian` - enjaula nesse diretório o usuário
-* `bash` - vai entrar como bash nesse isolamento
+Vamos entender o que essas opções do unshare está fazendo:
+
+- `--mount` - unshare mounts namespace (cada container é dono do seu ponto de montagem, isola os processos em um mnt namespace)
+- `--uts` - unshare UTS namespace (isolamento de hostname, versão de SO, etc)
+- `--ipc` - unshare System V IPC namespace (isola o SystemV IPC)
+- `--net` - unshare network namespace (cada container possuiu sua interface de redes)
+- `--map-root-user` - mapeia o usuário atual para root (precisa do --user)
+- `--user` - unshare user namespace (mapa de identificação do usuário em cada container)
+- `--pid` - unshare pid namespace (cada container tenha sua identificação de processo)
+- `--fork` - fork antes do lançamento <programa>
+- `chroot /home/chroot-debian` - enjaula nesse diretório o usuário
+- `bash` - vai entrar como bash nesse isolamento
 
 Nessa parte, utilizamos os namespaces e chroot para criar nosso isolamento. Agora, iremos utilizar o cgroups para fazer a limitação de recursos, e assim o container estará completo.
 
 ## limitação de recursos com cgroup
 
-Precisamos instalar o `cgroup-tools` para manipular o cgroups, apesar de já estar no linux, não conseguimos interagir com ele por padrão, então usamos essa ferramenta. Logo mais iremos precisar do `htop` para visualizar a limitação dos recursos. 
+Precisamos instalar o `cgroup-tools` para manipular o cgroups, apesar de já estar no linux, não conseguimos interagir com ele por padrão, então usamos essa ferramenta. Logo mais iremos precisar do `htop` para visualizar a limitação dos recursos.
 
 Abra outra aba do terminal e digite os comandos:
 
@@ -113,7 +110,7 @@ cat /sys/fs/cgroup/mazoni/cgroup.procs
 # 24805
 ```
 
-Podemos colocar qual a quantidade máxima de cpu que o nosso container consegue utilizar. Manipulando os arquivos `cpu.max`.  
+Podemos colocar qual a quantidade máxima de cpu que o nosso container consegue utilizar. Manipulando os arquivos `cpu.max`.
 
 ```
 cat /sys/fs/cgroup/mazoni/cpu.max
@@ -158,6 +155,7 @@ sudo cgset -r memory.max=48M mazoni
 O comando `dd` não utiliza muita memória, ficando difícil de testar.
 
 ---
+
 Para pegarmos o valores dos controles dos grupos, ao invés de ficar dando `cat` nos arquivos, tem o comando `cgget`:
 
 ```
@@ -174,7 +172,6 @@ Com isso, tivemos um apanhado geral de como funciona o isolamento feito no Linux
 > Containers são isolamento de recursos.
 >
 > by Vitalino, Jeferson Fernando
-
 
 ### Fontes
 
