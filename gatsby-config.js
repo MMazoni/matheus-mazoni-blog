@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Matheus Mazoni Blog`,
+    title: `Matheus Mazoni`,
     author: {
       name: `Matheus Mazoni`,
       summary: `fissurado em tecnologia, generalista demais, mora em São Paulo. Gosta de basquete, cozinhar e cultura japonesa.`,
@@ -94,22 +94,22 @@ module.exports = {
               })
             },
             query: `{
-  allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
-    nodes {
-      excerpt
-      html
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        date
-      }
-    }
-  }
-}`,
+              allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+                nodes {
+                  excerpt
+                  html
+                  fields {
+                    slug
+                  }
+                  frontmatter {
+                    title
+                    date
+                  }
+                }
+              }
+            }`,
             output: "/rss.xml",
-            title: "Matheus Mazoni Blog RSS Feed",
+            title: "Matheus Mazoni RSS Feed",
           },
         ],
       },
@@ -117,7 +117,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Matheus Mazoni Blog`,
+        name: `Matheus Mazoni`,
         short_name: `MMazoni Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
@@ -125,7 +125,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/mmazoni-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -141,6 +141,18 @@ module.exports = {
             name: `Ubuntu`,
             file: `https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap`,
           },
+          {
+            name: `Barlow`,
+            file: `https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap`,
+          },
+          {
+            name: `Inter`,
+            file: `https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap`,
+          },
+          {
+            name: `Jetbrains Mono`,
+            file: `https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap`,
+          }
         ],
       },
     },
