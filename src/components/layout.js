@@ -7,36 +7,33 @@ const Layout = ({ location, title, children }) => {
   const isRootPath = location.pathname === rootPath
   let header
 
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        <StaticImage
-          layout="fixed"
-          formats={["auto", "webp", "avif"]}
-          src="../images/name-logo.png"
-          backgroundColor="transparent"
-          className="logo-name"
-          // width={50}
-          // height={50}
-          // quality={95}
-          alt="Profile picture"
-        />
-      </Link>
-    )
-  }
+  // if (isRootPath) {
+  //   header = (
+  //     <h1 className="main-heading">
+  //       <Link to="/">{title}</Link>
+  //     </h1>
+  //   )
+  // } else {
+  header = (
+    <Link className="header-link-home" to="/">
+      <StaticImage
+        layout="fixed"
+        formats={["auto", "webp", "avif"]}
+        src="../images/name-logo.png"
+        backgroundColor="transparent"
+        className="logo-name"
+        alt="Logo e nome"
+      />
+    </Link>
+  )
+  // }
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
+        © {new Date().getFullYear()}, Construído com
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </footer>
