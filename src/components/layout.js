@@ -19,6 +19,8 @@ const Layout = ({ location, title, children }) => {
       <StaticImage
         layout="fixed"
         formats={["auto", "webp", "avif"]}
+        loading="eager"
+        placeholder="blurred"
         src="../images/name-logo.png"
         backgroundColor="transparent"
         className="logo-name"
