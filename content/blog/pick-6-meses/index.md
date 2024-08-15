@@ -4,7 +4,7 @@ date: "2024-01-23T16:33:32.169Z"
 description: Já faz 6 meses de PICK, como passa rápido…
 ---
 
-Só recapitulando: o PICK é o Programa Intensivo de Containers e Kubernetes da Linuxtips. 
+Só recapitulando: o PICK é o Programa Intensivo de Containers e Kubernetes da Linuxtips.
 
 Vou deixar alguns pensamentos aqui de como está sendo minha jornada no programa para aqueles que tem dúvida se vale a pena, e também dicas sobre como aproveitar melhor caso você for participar.
 
@@ -58,13 +58,13 @@ Os conteúdos são liberados aos poucos. Agora terminamos o Descomplicando Kuber
 
 ### Aulas ao-vivo
 
-As aulas ao-vivo são com o Jeferson ou temos uma mentoria com alguma pessoa fera da comunidade sobre um assunto específico, e podemos interagir e fazer perguntas. Esse conteúdo fica gravado, para as pessoas que não conseguem entrar na live. 
+As aulas ao-vivo são com o Jeferson ou temos uma mentoria com alguma pessoa fera da comunidade sobre um assunto específico, e podemos interagir e fazer perguntas. Esse conteúdo fica gravado, para as pessoas que não conseguem entrar na live.
 
 Um ponto negativo, é que as vezes tem que remarcar a aula e tu tinha já esquematizado toda a rotina para assistir aquele dia e horário. Mas não tem muito o que fazer, acredito que geralmente é um imprevisto na agenda do mentor.
 
 ### Networking
 
-Temos um grupo no Telegram, com todos os alunos e alguns mentores. Essa parte de network depende mais de nós do que do programa em si. 
+Temos um grupo no Telegram, com todos os alunos e alguns mentores. Essa parte de network depende mais de nós do que do programa em si.
 
 Posso citar alguns casos aqui de alunos que se destacam e conseguem algo a mais: como ser o novo instrutor de um curso na LinuxTips; se tornar um community manager de uma provedora de cloud; dar uma aula de um assunto que aprendemos em uma live no canal da Linuxtips entre outros.
 

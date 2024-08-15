@@ -4,7 +4,7 @@ date: "2022-04-21T11:34:32.169Z"
 description: Automatizar a configuração do meu ambiente de Desenvolvimento do Chromebook com Ansible
 ---
 
-Se você leu os primeiros posts do meu blog, deve saber que tenho um chromebook. Hoje em dia, a forma mais fácil e nativa de desenvolvimento é utilizando o Crostini. É um LXC (Linux Containers), que vem na distro Debian por padrão, mas dá para mudar para Ubuntu, Arch Linux entre outras. Eu tenho um problema muito grande chamado: *espaço em disco*. Como meu chromebook tem apenas 16Gb de disco, o Crostini consegue alocar no máximo 7Gb, sendo que o sistema do Linux por si só já deve comer uns 2Gb.
+Se você leu os primeiros posts do meu blog, deve saber que tenho um chromebook. Hoje em dia, a forma mais fácil e nativa de desenvolvimento é utilizando o Crostini. É um LXC (Linux Containers), que vem na distro Debian por padrão, mas dá para mudar para Ubuntu, Arch Linux entre outras. Eu tenho um problema muito grande chamado: _espaço em disco_. Como meu chromebook tem apenas 16Gb de disco, o Crostini consegue alocar no máximo 7Gb, sendo que o sistema do Linux por si só já deve comer uns 2Gb.
 
 Geralmente faço reboot desse container para diferentes setups de desenvolvimento (Node+Docker, Terraform+Kubernetes, PHP+Python+MySQL). E fazer a instalação dos pacotes tudo na mão toda hora que eu troco entre esses setup é um saco. É aí que entra o Ansible. Conheci recentemente por uma indicação de um colega do trabalho. Pesquisei e vi uns vídeos da Alura sobre o assunto e já consegui brincar um pouquinho para automatizar o provisionamento de meu ambiente padrão de desenvolvimento no Crostini.
 
@@ -74,22 +74,22 @@ npm i -g yarn
 
 O script era bem simples:
 
-* Instalava o fish, meu shell favorito.
-* Configurava o git
-* Configurava o vim
-* Gerava o SSH da máquina (não era tão automatizado, pois tinha que colocar no github)
-* Instalava o Docker e o Docker Compose
-* Instalava o node
+- Instalava o fish, meu shell favorito.
+- Configurava o git
+- Configurava o vim
+- Gerava o SSH da máquina (não era tão automatizado, pois tinha que colocar no github)
+- Instalava o Docker e o Docker Compose
+- Instalava o node
 
-[Ansible](https://github.com/ansible/ansible) é uma ferramenta open-source de automação mais utilizada para gerenciar a configuração de servidores.  Porêm, vou usá-lo com meu ambiente de desenvolvimento local. Ela foi desenvolvida pela Red Hat em python, mas não precisa saber python para usar o ansible. 
+[Ansible](https://github.com/ansible/ansible) é uma ferramenta open-source de automação mais utilizada para gerenciar a configuração de servidores. Porêm, vou usá-lo com meu ambiente de desenvolvimento local. Ela foi desenvolvida pela Red Hat em python, mas não precisa saber python para usar o ansible.
 
-Geralmente não é comum utilizar no ambiente local, pelo fato ser muito poderoso pra fazer somente isso. Só que fiz para aprender mesmo. Achei a curva de aprendizado bem tranquila. 
+Geralmente não é comum utilizar no ambiente local, pelo fato ser muito poderoso pra fazer somente isso. Só que fiz para aprender mesmo. Achei a curva de aprendizado bem tranquila.
 
 Algumas vantagens que percebi ao usar o Ansible:
 
 - simplicidade, fácil de aprender
 - não precisa instalar agent na máquina que será automatizada
 - playbooks escritos em YAML
-- utilizar secrets para dados sensíveis 
+- utilizar secrets para dados sensíveis
 
-Em um próximo post vou mostrar as formas de instalar o ansible e como fiz a automação e estruturei os playbooks. 
+Em um próximo post vou mostrar as formas de instalar o ansible e como fiz a automação e estruturei os playbooks.

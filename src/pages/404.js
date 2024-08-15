@@ -9,13 +9,13 @@ const NotFoundPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <h1>404: Não encontrado</h1>
+      <p>Você acabou esbarrando em uma rota que não existe... que triste.</p>
     </Layout>
   )
 }
 
-export const Head = () => <Seo title="404: Not Found" />
+export const Head = () => <Seo title="404: Não encontrado" />
 
 export default NotFoundPage
 
