@@ -30,9 +30,9 @@ const AboutMe = ({ data, location }) => {
       <p>
         Trabalho como DevOps atualmente, mas comecei como desenvolvedor PHP em
         2019 no Porto de Santos. Fiz a migração em 2022, em um projeto
-        internacional que atuava, criando alguma automações, esteira de entrega
-        contínua, monitoramento de logs. Gosto ainda bastante de programar e
-        compartilhar conhecimento.
+        internacional que atuava, criando algumas automações, a esteira de
+        entrega contínua, e o monitoramento de logs. Ainda programo bastante e
+        curto, também gosto de compartilhar conhecimento.
       </p>
       <p>
         Minha stack atual é:
