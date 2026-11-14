@@ -2,6 +2,8 @@
 title: Meus primeiros 2 anos de programação
 date: "2021-12-02T21:22:59.169Z"
 description: "Um relato do início da minha carreira com programação até os dias de hoje"
+aliases:
+  - /dois-anos-experiencia/
 ---
 
 Quando eu estava nos primeiros semestres da faculdade, eu já trabalhava, porém ainda não era na área de tecnologia. Nessa época, mandava currículo para várias empresas em busca de migrar para desenvolvimento logo no início, para quando eu estivesse prestes a me formar, eu já estaria trabalhando como Desenvolvedor Júnior. Pelo menos era isso o que eu almejava.

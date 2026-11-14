@@ -1,0 +1,22 @@
+{{- $birthStr := .Get 0 | default (.Get "date") | default "2022-06-23" -}}
+{{- $birth := time.AsTime $birthStr -}}
+{{- $now := now -}}
+{{- $age := sub $now.Year $birth.Year -}}
+{{- if or (lt $now.Month $birth.Month) (and (eq $now.Month $birth.Month) (lt $now.Day $birth.Day)) -}}
+  {{- $age = sub $age 1 -}}
+{{- end -}}
+<span class="dynamic-age" data-birth="{{ $birthStr }}">{{ $age }}</span><script>
+(function() {
+  var el = document.currentScript.previousElementSibling;
+  if (el && el.dataset.birth) {
+    var parts = el.dataset.birth.split('-').map(Number);
+    var today = new Date();
+    var age = today.getFullYear() - parts[0];
+    var m = (today.getMonth() + 1) - parts[1];
+    if (m < 0 || (m === 0 && today.getDate() < parts[2])) {
+      age--;
+    }
+    el.textContent = age;
+  }
+})();
+</script>

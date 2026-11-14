@@ -1,0 +1,33 @@
+{{- $pages := where site.RegularPages "Section" "blog" -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.Title }}</title>
+    <link>{{ site.BaseURL }}</link>
+    <description>{{ site.Params.description }}</description>
+    <generator>Hugo</generator>
+    <language>{{ site.Language.Locale | default "pt-BR" }}</language>
+    {{ with site.Params.author }}
+    <managingEditor>{{ .email }} ({{ .name }})</managingEditor>
+    <webMaster>{{ .email }} ({{ .name }})</webMaster>
+    {{ end }}
+    {{ with (index $pages 0) }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{ end }}
+    {{ with .OutputFormats.Get "RSS" }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+    {{ end }}
+    {{ range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      {{ with site.Params.author }}
+      <author>{{ .email }} ({{ .name }})</author>
+      {{ end }}
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Description | default .Summary | html }}</description>
+    </item>
+    {{ end }}
+  </channel>
+</rss>

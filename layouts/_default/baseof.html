@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale | default "pt-BR" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <div class="global-wrapper" data-is-root-path="{{ if .IsHome }}true{{ else }}false{{ end }}">
+    <header class="global-header">
+      {{ partial "header.html" . }}
+    </header>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
+</body>
+</html>

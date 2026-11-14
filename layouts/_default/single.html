@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ if eq .Section "blog" }}
+  <article class="blog-post" itemscope itemtype="http://schema.org/Article">
+    <header>
+      <h1 itemprop="headline">{{ .Title }}</h1>
+      <p>{{ .Date | time.Format ":date_long" }}</p>
+    </header>
+    <section itemprop="articleBody">
+      {{ .Content }}
+    </section>
+    <hr>
+    <footer>
+      {{ partial "bio.html" . }}
+    </footer>
+  </article>
+  <nav class="blog-post-nav">
+    <ul style="display: flex; flex-wrap: wrap; justify-content: space-between; list-style: none; padding: 0;">
+      <li>
+        {{ with .PrevInSection }}
+        <a href="{{ .RelPermalink }}" rel="prev">← {{ .Title }}</a>
+        {{ end }}
+      </li>
+      <li>
+        {{ with .NextInSection }}
+        <a href="{{ .RelPermalink }}" rel="next">{{ .Title }} →</a>
+        {{ end }}
+      </li>
+    </ul>
+  </nav>
+{{ else }}
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <section>
+      {{ .Content }}
+    </section>
+  </article>
+{{ end }}
+{{ end }}

@@ -1,24 +1,56 @@
 # Matheus Mazoni Blog
 
-Blog pessoal que conto um pouco a minha experiência na área de tecnologia.
+Blog pessoal onde escrevo sobre Automação, DevOps e Desenvolvimento.
+
+Migrado de Gatsby.js para **[Hugo](https://gohugo.io/)**.
 
 ## 💻 Pré-requisitos
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+Para rodar localmente, você precisa apenas do binário do **Hugo** (versão Extended recomendada):
 
-- Você instalou a versão LTS do `Node` que já vem junto com `npm`
+- No Linux (Debian/Ubuntu/Pop!_OS):
+  ```bash
+  sudo apt install hugo
+  # Ou baixe a versão extended do GitHub Releases
+  ```
+- No macOS (Homebrew):
+  ```bash
+  brew install hugo
+  ```
+- No Windows (Winget/Scoop/Choco):
+  ```bash
+  winget install Hugo.Hugo.Extended
+  ```
 
-## ☕ Rodar o blog
+> Neste workspace, o binário do Hugo já está disponível em `./bin/hugo`.
 
-Para utilizar o blog, siga estas etapas:
+## ☕ Rodar o blog localmente
 
+Inicie o servidor de desenvolvimento com live-reload:
+
+```bash
+hugo server -D
+# ou usando o binário local:
+./bin/hugo server -D
 ```
-npm install
-npm run start
+
+Acesse em `http://localhost:1313/`.
+
+## 📦 Build para produção
+
+Para gerar os arquivos estáticos em `./public`:
+
+```bash
+hugo --gc --minify
+# ou:
+./bin/hugo --gc --minify
 ```
 
-Caso queira buildar para produção:
+## 🚀 CI/CD com GitHub Actions
 
-```
-npm run build
-```
+O deploy para o **GitHub Pages** é feito de forma 100% automatizada a cada push na branch `master` através do workflow em [`.github/workflows/hugo.yml`](.github/workflows/hugo.yml).
+
+### Configuração no GitHub:
+1. No repositório, vá em **Settings** > **Pages**.
+2. Em **Build and deployment** > **Source**, selecione **GitHub Actions**.
+3. O workflow fará o build com Hugo Extended e deploy direto no GitHub Pages em segundos.
