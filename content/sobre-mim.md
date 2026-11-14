@@ -4,7 +4,7 @@ date: 2022-01-01
 url: "/sobre-mim/"
 ---
 
-Sou uma pessoa `curiosa`, que possui muitos gostos. Introvertido, mas enfrento multidões para ir em shows de bandas que curto. `Música` é uma das minhas maiores paixões, tanto como `basquete`. Sou pai do Apollo de {{< age "2022-06-23" >}} anos e gosto muito de estudar sobre comportamento infantil e `paternidade`. Pode-se dizer que sou um **"lifelong learner"**, pois amo `aprender` sobre novos assuntos.
+Sou uma pessoa `curiosa`, que possui muitos gostos. Introvertido, mas enfrento multidões para ir em shows de bandas que curto. `Música` é uma das minhas maiores paixões, tanto como `basquete`. Pode-se dizer que sou um **"lifelong learner"**, pois amo `aprender` sobre novos assuntos.
 
 **_#cozinhar #pop-punk #leitura #quadrinhos #jiu-jitsu #taiko_**
 
