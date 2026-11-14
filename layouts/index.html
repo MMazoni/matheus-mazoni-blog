@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ partial "bio.html" . }}
+  <ol style="list-style: none;">
+    {{ $posts := where site.RegularPages "Section" "blog" }}
+    {{ range $posts }}
+    <li>
+      <article class="post-list-item" itemscope itemtype="http://schema.org/Article">
+        <header>
+          <h2>
+            <a href="{{ .RelPermalink }}" itemprop="url">
+              <span itemprop="headline">{{ .Title }}</span>
+            </a>
+          </h2>
+          <small>{{ .Date | time.Format ":date_long" }}</small>
+        </header>
+        <section>
+          <p itemprop="description">
+            {{ .Description | default .Summary }}
+          </p>
+        </section>
+      </article>
+    </li>
+    {{ end }}
+  </ol>
+{{ end }}

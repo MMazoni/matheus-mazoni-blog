@@ -254,6 +254,13 @@ a:focus {
 
 .global-header {
   margin-bottom: var(--spacing-12);
+  text-align: center;
+}
+
+.global-header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-heading {
@@ -282,6 +289,7 @@ a:focus {
 }
 
 .header-link-home {
+  display: inline-block;
   font-weight: var(--fontWeight-bold);
   font-family: var(--font-heading);
   text-decoration: none;
@@ -289,6 +297,7 @@ a:focus {
 }
 
 .logo-name {
+  display: block;
   width: 200px;
   margin: 0 auto;
 }
@@ -308,7 +317,23 @@ a:focus {
   margin-right: var(--spacing-4);
   margin-bottom: var(--spacing-0);
   min-width: 100px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.bio-avatar img {
+  border-radius: 50%;
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.bio-avatar:hover {
+  opacity: 0.9;
 }
 
 .blog-post header h1 {
@@ -331,8 +356,33 @@ a:focus {
   line-height: var(--spacing-10);
 }
 
-.gatsby-highlight {
+.gatsby-highlight,
+.highlight {
   margin-bottom: var(--spacing-8);
+}
+
+pre {
+  padding: var(--spacing-4);
+  overflow-x: auto;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  font-size: var(--fontSize-0);
+  line-height: var(--lineHeight-normal);
+  border: 1px solid var(--color-accent);
+}
+
+code {
+  font-family: var(--fontFamily-serif);
+  font-size: 0.9em;
+  background-color: #f4f4f4;
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 
 /* Media queries */

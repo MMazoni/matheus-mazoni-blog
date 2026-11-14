@@ -1,0 +1,40 @@
+baseURL = "https://matheusmazoni.com.br/"
+title = "Matheus Mazoni"
+defaultContentLanguage = "pt-br"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[languages.pt-br]
+  locale = "pt-BR"
+  label = "Português"
+
+[params]
+  description = "Um blog onde escrevo sobre Automação, DevOps e Desenvolvimento."
+  googleAnalytics = "G-FTD83RDCL4"
+  [params.author]
+    name = "Matheus Mazoni"
+    summary = "fissurado em tecnologia, generalista demais, mora em São Paulo. Gosta de basquete, cozinhar e cultura japonesa."
+    email = "mmazoni.andrade@gmail.com"
+  [params.social]
+    twitter = "mazoni_matheus"
+    github = "MMazoni"
+
+[permalinks.page]
+  blog = "/:slugorfilename/"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    guessSyntax = true
+    lineNos = false
+    style = "github"
+    noClasses = false
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
+
+[outputFormats.RSS]
+  baseName = "rss"
